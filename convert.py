@@ -3,7 +3,7 @@ import os
 path = os.getcwd()
 fname='Normalizing_eigenfunctions.py'
 
-os.system('jupyter nbconvert --to script finding_root.ipynb')
+os.system('jupyter nbconvert --to script Normalizing_eigenfunctions.ipynb')
 
 with open(fname, 'r') as f:
     lines = f.readlines()
