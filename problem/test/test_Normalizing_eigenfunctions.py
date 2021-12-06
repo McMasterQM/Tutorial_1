@@ -19,7 +19,9 @@ def test_compute_wavefunction():
     :return:
     """
     n = np.random.randint(100,  size=10)
-    a = np.ones(10)
-    wfn_sqr = partial(compute_probability, n=n, a=a)
-    res = quad(wfn_sqr, 0, 1)
-    assert_allclose(res, np.ones(10))
+    a = np.random.rand(10)*10
+
+    for n_, a_ in zip(n, a):
+        wfn_sqr = partial(compute_probability, n=int(n_), a=a_)
+        res, err = quad(wfn_sqr, 0, a_)
+        assert_allclose(res, np.ones(1))
