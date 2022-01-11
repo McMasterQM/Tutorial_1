@@ -11,7 +11,7 @@ def compute_probability(x, n, a):
 
     See `compute_wavefunction` parameters.
     """
-    return compute_wavefunction(x, n, a) ** 2
+    return np.real(compute_wavefunction(x, n, a)) ** 2 ## square only a real part, so that A_n with negative radicant doesn't pass the test
 
 def test_compute_wavefunction():
     """
