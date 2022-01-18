@@ -10,8 +10,12 @@ def compute_probability(x, n, a):
     """Compute 1-dimensional particle-in-a-box probablity value(s).
 
     See `compute_wavefunction` parameters.
+    
+    We only square the real part, which is so that if the user defines a complex amplitude (negative radicant) the test is not passed.
+    The goal of this is to support the extension to the exercise where the user tries to break the code, forcing some knowledge
+    about complex numbers/amplitude upon the user.
     """
-    return np.real(compute_wavefunction(x, n, a)) ** 2 ## square only a real part, so that A_n with negative radicant doesn't pass the test
+    return np.real(compute_wavefunction(x, n, a)) ** 2 
 
 def test_compute_wavefunction():
     """
